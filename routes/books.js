@@ -49,6 +49,7 @@ router.post("/",verifyTokenAndAdmin,asyncHandler(async(req,res)=>{
     const book = new Book ({
         title : req.body.title,
         author : req.body.author,
+        description : req.body.description,
         price : req.body.price,
         cover : req.body.cover,
     })
@@ -77,6 +78,7 @@ router.post("/",verifyTokenAndAdmin,asyncHandler(async(req,res)=>{
     $set:{
         title : req.body.title,
         author : req.body.author,
+        description : req.body.description,
         price : req.body.price,
         cover : req.body.cover
     }

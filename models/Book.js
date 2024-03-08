@@ -16,6 +16,10 @@ const BookSchema  = new mongoose.Schema ({
         required : true,
         ref:"Author"
     },
+    description :{
+        type : String,
+        minlength : 6 
+    },
     price : {
         type : Number,
         required : true ,
@@ -36,6 +40,7 @@ const Book = mongoose.model("Book",BookSchema);
     const schema = Joi.object({
         title: Joi.string().trim().min(3).max(250).required(),
         author: Joi.string().trim().required(),
+        description : Joi.string().trim().min(6),
         price: Joi.number().min(0).required(),
         cover: Joi.string().valid("soft cover","hard cover").required()
 
@@ -49,6 +54,7 @@ const Book = mongoose.model("Book",BookSchema);
     const schema = Joi.object({
         title: Joi.string().trim().min(3).max(250),
         author: Joi.string().trim(),
+        description : Joi.string().trim().min(6),
         price: Joi.number().min(0),
         cover: Joi.string().valid("soft cover","hard cover")
 
